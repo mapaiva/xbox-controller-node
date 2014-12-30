@@ -1,0 +1,29 @@
+{
+  "directionalButtons": {
+    "none": 64,
+    "leftstickpress": 65,
+    "rightstickpress": 66,
+
+    "up": 68,
+    "down": 84,
+    "left": 92,
+    "right": 76,
+
+    "upright": 72,
+    "upleft": 96,
+    "downright": 80,
+    "downleft": 88
+  },
+
+  "controlButtons": {
+    "none": 0,
+    "a": 1,
+    "b": 2,
+    "y": 8,
+    "x": 4,
+    "rb": 32,
+    "lb": 16,
+    "start": 128,
+    "select": 64
+  }
+}

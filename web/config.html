@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Xbox Controller configuration</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css' />
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    object{
+      display: none;
+    }
+
+    body{
+      font-family: 'Bitter', Helvetica, Arial;
+      margin: 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .center-block{
+      width: 1000px;
+      margin: auto;
+    }
+
+    .error-message, .success-message{
+      color: #F1F1F1;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      padding: 30px 0;
+      margin: 15px 10px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .error-message{
+      background-color: #d83434;
+    }
+
+    .success-message{
+      background-color: #60b044;
+    }
+
+    .header{
+      background-color: #1e3676;
+      overflow: hidden;
+      color: #FFF;
+    }
+
+    .header h1, h4{
+      text-align: center;
+      font-weight: lighter;
+    }
+
+    .header h1{
+      text-shadow: 2px 2px rgba(0, 23, 86, 0.6);
+      font-size: 3em;
+    }
+
+    .header h4{
+      color: #abc2fc;
+    }
+
+    .buttons{
+      overflow: hidden;
+      background-color: #F7F7F7;
+      border-bottom: #DDD 1px solid;
+    }
+
+    .buttons .button-command{
+      width: 450px;
+      padding: 10px;
+      float: left;
+    }
+
+    .buttons .button-command span{
+      font-weight: bold;
+    }
+
+    .configs-container{
+      background-color: #F1F1F1;
+      overflow: hidden;
+    }
+
+    .configs-container .config{
+      text-align: center;
+      border: #CCC 2px dashed;
+      padding: 30px;
+      color: #CCC;
+      font-weight: bold;
+      margin: 20px 0;
+      font-size: 2em;
+      outline: none;
+      cursor: default;
+    }
+
+    .configs-container .config:focus{
+      color: #333;
+      border-color: #333;
+    }
+
+    .btn-send-config{
+      padding: 15px;
+      cursor: pointer;
+      background-color: #1e3676;
+      border-radius: 3px;
+      color: #FFF;
+      border-bottom: #0A2059 3px solid;
+      margin: 20px 0;
+    }
+
+    .btn-send-config:hover{
+      background-color: #334C90;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="center-block">
+      <h1>Xbox Controller configuration</h1>
+      <h4>Follow the steps to configure the commands of your xbox controller</h4>
+    </div>
+  </div>
+  <div class="buttons">
+    <div class="center-block">
+      <div class="button-command">
+        Directional button: <span class="directionalButton"></span>
+      </div>
+      <div class="button-command">
+        Control button: <span class="controlButton"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="error-message"></div>
+  <div class="success-message">Configuration has been saved. Please restart the application</div>
+
+  <div class="configs-container">
+    <div class="center-block">
+      <h2>Click on any box <u>press</u> and <u>hold</u> the correspondent button</h2>
+
+      <div id="up" title="UP button" rel="dbutton" class="config" tabindex="0">
+        UP Button
+      </div>
+      <div id="down" title="DOWN button" rel="dbutton" class="config" tabindex="0">
+        DOWN Button
+      </div>
+      <div id="left" title="LEFT button" rel="dbutton" class="config" tabindex="0">
+        LEFT Button
+      </div>
+      <div id="right" title="RIGHT button" rel="dbutton" class="config" tabindex="0">
+        RIGHT Button
+      </div>
+
+      <div id="upright" title="UPRIGHT button" rel="dbutton" class="config" tabindex="0">
+        UPRIGHT Button
+      </div>
+      <div id="upleft" title="UPLEFT button" rel="dbutton" class="config" tabindex="0">
+        UPLEFT Button
+      </div>
+      <div id="downright" title="DOWNRIGHT button" rel="dbutton" class="config" tabindex="0">
+        DOWNRIGHT Button
+      </div>
+      <div id="downleft" title="DOWNLEFT button" rel="dbutton" class="config" tabindex="0">
+        DOWNLEFT Button
+      </div>
+
+      <div id="leftstickpress" title="LEFTSTICKPRESS button" rel="dbutton" class="config" tabindex="0">
+        LEFTSTICKPRESS Button
+      </div>
+      <div id="rightstickpress" title="RIGHTSTICKPRESS button" rel="dbutton" class="config" tabindex="0">
+        RIGHTSTICKPRESS Button
+      </div>
+
+      <div id="a" title="A button" rel="bbutton" class="config" tabindex="0">
+        A Button
+      </div>
+      <div id="b" title="B button" rel="bbutton" class="config" tabindex="0">
+        B Button
+      </div>
+      <div id="y" title="Y button" rel="bbutton" class="config" tabindex="0">
+        Y Button
+      </div>
+      <div id="x" title="X button" rel="bbutton" class="config" tabindex="0">
+        X Button
+      </div>
+
+      <div id="rb" title="RB button" rel="bbutton" class="config" tabindex="0">
+        RB Button
+      </div>
+      <div id="lb" title="LB button" rel="bbutton" class="config" tabindex="0">
+        LB Button
+      </div>
+      <div id="start" title="Start button" rel="bbutton" class="config" tabindex="0">
+        Start Button
+      </div>
+      <div id="select" title="Select button" rel="bbutton" class="config" tabindex="0">
+        Select Button
+      </div>
+
+      <div class="btn-send-config">Save configuration</div>
+    </div>
+  </div>
+  <script>
+  var socket = io();
+  var configs = document.getElementsByClassName('config');
+  var conguration = {
+    directionalButtons: {},
+    controlButtons: {}
+  };
+
+  for(i = 0 ; i < configs.length; i++){
+
+    configs[i].addEventListener('focus', function (a) {
+
+      a.target.setAttribute('focused', 'true');
+    });
+
+    configs[i].addEventListener('blur', function (a) {
+
+      a.target.removeAttribute('focused');
+    });
+  }
+
+  document.querySelector('.btn-send-config').addEventListener('click', function () {
+    socket.emit('config', conguration);
+  });
+
+  function waitPressButton(field) {
+    if(!waiting){
+      waiting = true;
+
+      setTimeout(function () {
+
+        if(field.getAttribute('rel') == 'bbutton'){
+          conguration.controlButtons[field.getAttribute('id')] = parseInt(field.innerHTML);
+
+        }else if(field.getAttribute('rel') == 'dbutton'){
+          conguration.directionalButtons[field.getAttribute('id')] = parseInt(field.innerHTML);
+
+        }
+
+        field.blur();
+        // field.nextSibling.nextElementSibling.focus();
+
+        waiting = false;
+
+      }, 1000);
+    }
+  }
+
+  var waiting = false;
+
+  socket.on('controllerdata', function (directionalButton, controlButton) {
+
+    document.querySelector('.directionalButton').innerHTML = directionalButton;
+    document.querySelector('.controlButton').innerHTML = controlButton;
+
+    for(i = 0 ; i < configs.length; i++){
+      if(configs[i].getAttribute('focused')){
+
+        if(configs[i].getAttribute('rel') == 'bbutton'){
+          configs[i].innerHTML = controlButton;
+
+          waitPressButton(configs[i]);
+
+        }else if(configs[i].getAttribute('rel') == 'dbutton'){
+          configs[i].innerHTML = directionalButton;
+
+          waitPressButton(configs[i]);
+        }
+      }
+    }
+  });
+
+  socket.on('controllererror', function (err) {
+    var errorBox = document.querySelector('.error-message');
+    errorBox.innerHTML = err;
+    errorBox.style.display = 'block';
+    document.querySelector('.configs-container').style.display = 'none';
+  });
+
+  socket.on('configsuccess', function () {
+    var succesBox = document.querySelector('.success-message');
+    succesBox.style.display = 'block';
+    document.querySelector('.configs-container').style.display = 'none';
+  });
+</script>
+</body>
+</html>
