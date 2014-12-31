@@ -1,6 +1,6 @@
 {
   "name": "xbox-controller-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple interface to Xbox controller using Node.js",
   "main": "./lib/xbox-controller.js",
   "dependencies": {
