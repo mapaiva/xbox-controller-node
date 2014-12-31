@@ -42,6 +42,16 @@
       background-color: #60b044;
     }
 
+    .help-box{
+      font-size: 0.9em;
+      padding: 5px;
+      font-weight: bold;
+      position: absolute;
+      margin: 10px;
+      cursor: help;
+      display: none;
+    }
+
     .header{
       background-color: #1e3676;
       overflow: hidden;
@@ -138,6 +148,8 @@
 
   <div class="configs-container">
     <div class="center-block">
+      <div class="help-box">Press and hold the button until box lose focus</div>
+
       <h2>Click on any box <u>press</u> and <u>hold</u> the correspondent button</h2>
 
       <div id="up" title="UP button" rel="dbutton" class="config" tabindex="0">
@@ -209,48 +221,23 @@
     directionalButtons: {},
     controlButtons: {}
   };
+  var helpBox = document.querySelector('.help-box');
+  var waiting = false;
 
-  for(i = 0 ; i < configs.length; i++){
+  socket.on('controllererror', function (err) {
+    var errorBox = document.querySelector('.error-message');
 
-    configs[i].addEventListener('focus', function (a) {
-
-      a.target.setAttribute('focused', 'true');
-    });
-
-    configs[i].addEventListener('blur', function (a) {
-
-      a.target.removeAttribute('focused');
-    });
-  }
-
-  document.querySelector('.btn-send-config').addEventListener('click', function () {
-    socket.emit('config', conguration);
+    errorBox.innerHTML = err;
+    errorBox.style.display = 'block';
+    document.querySelector('.configs-container').style.display = 'none';
   });
 
-  function waitPressButton(field) {
-    if(!waiting){
-      waiting = true;
+  socket.on('configsuccess', function () {
+    var succesBox = document.querySelector('.success-message');
 
-      setTimeout(function () {
-
-        if(field.getAttribute('rel') == 'bbutton'){
-          conguration.controlButtons[field.getAttribute('id')] = parseInt(field.innerHTML);
-
-        }else if(field.getAttribute('rel') == 'dbutton'){
-          conguration.directionalButtons[field.getAttribute('id')] = parseInt(field.innerHTML);
-
-        }
-
-        field.blur();
-        // field.nextSibling.nextElementSibling.focus();
-
-        waiting = false;
-
-      }, 1000);
-    }
-  }
-
-  var waiting = false;
+    succesBox.style.display = 'block';
+    document.querySelector('.configs-container').style.display = 'none';
+  });
 
   socket.on('controllerdata', function (directionalButton, controlButton) {
 
@@ -274,18 +261,48 @@
     }
   });
 
-  socket.on('controllererror', function (err) {
-    var errorBox = document.querySelector('.error-message');
-    errorBox.innerHTML = err;
-    errorBox.style.display = 'block';
-    document.querySelector('.configs-container').style.display = 'none';
+  for(i = 0 ; i < configs.length; i++){
+
+    configs[i].addEventListener('focus', function (el) {
+      var BOX = el.srcElement;
+
+      BOX.setAttribute('focused', 'true');
+      helpBox.style.top = BOX.offsetTop + 'px';
+      helpBox.style.display = 'block';
+
+    });
+
+    configs[i].addEventListener('blur', function (el) {
+
+      el.srcElement.removeAttribute('focused');
+      helpBox.style.display = 'none';
+    });
+  }
+
+  document.querySelector('.btn-send-config').addEventListener('click', function () {
+    socket.emit('config', conguration);
   });
 
-  socket.on('configsuccess', function () {
-    var succesBox = document.querySelector('.success-message');
-    succesBox.style.display = 'block';
-    document.querySelector('.configs-container').style.display = 'none';
-  });
+  function waitPressButton(field) {
+    if(!waiting){
+      waiting = true;
+
+      setTimeout(function () {
+
+        if(field.getAttribute('rel') == 'bbutton'){
+          conguration.controlButtons[field.getAttribute('id')] = parseInt(field.innerHTML);
+
+        }else if(field.getAttribute('rel') == 'dbutton'){
+          conguration.directionalButtons[field.getAttribute('id')] = parseInt(field.innerHTML);
+
+        }
+
+        field.blur();
+        waiting = false;
+
+      }, 1000);
+    }
+  }
 </script>
 </body>
 </html>
