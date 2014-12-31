@@ -3,13 +3,13 @@ Xbox Controller Interface
 
 Simple interface to Xbox controller using Node.js
 
-#Installing
+## Installing
 
 ```bash
 npm install xbox-controller-node
 ```
 
-If you have problems with the instalation of the ```node-hid``` these links can be usefull:
+If you have problems with the instalation of the `node-hid` these links can be usefull:
 
 - Prerequisites of node-hid [node-hid prerequisites](https://github.com/node-hid/node-hid#prerequisites)
 - node-gyp wiki documentation for windows [node-gyp wiki](https://github.com/TooTallNate/node-gyp/wiki/Visual-Studio-2010-Setup)
@@ -42,4 +42,3 @@ This will launch a server page on browser to you configure your controller. The 
 Yes. The triggers and the sticks buttons are not mapped :(. For this... contributions and improvements are very welcome. Thanks for see this.
 
   Based on [node-xbox-controller](https://github.com/andrew/node-xbox-controller)
-  
