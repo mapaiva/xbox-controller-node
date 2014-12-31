@@ -21,7 +21,7 @@ var xbox = require('xbox-controller-node');
 
 xbox.on('data', function (directionalButton, controlButton) {
   console.log('Directional button:', directionalButton);
-  console.log('Control button', controlButton);
+  console.log('Control button:', controlButton);
 });
 ```
 
