@@ -16,12 +16,29 @@ If you have problems with the instalation of the `node-hid` these links can be u
 
 ## Usage
 
+See the complete API [Xbox Controller API](https://github.com/mapaiva/xbox-controller-node/wiki)
+
 ``` javascript
 var xbox = require('xbox-controller-node');
 
-xbox.on('data', function (directionalButton, controlButton) {
-  console.log('Directional button:', directionalButton);
-  console.log('Control button:', controlButton);
+xbox.on('a', function () {
+  console.log('[A] button press');
+});
+
+xbox.on('start', function () {
+  console.log('[Start] button press');
+});
+
+xbox.on('left', function () {
+  console.log('[LEFT] button press');
+});
+
+xbox.on('upright', function () {
+  console.log('[UPRIGHT] buttons combination press');
+});
+
+xbox.on('leftstickpress', function () {
+  console.log('[LEFTSTICK] button press');
 });
 ```
 
