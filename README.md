@@ -16,7 +16,7 @@ If you have problems with the instalation of the `node-hid` these links can be u
 
 ## Usage
 
-See the complete API [Xbox Controller API](https://github.com/mapaiva/xbox-controller-node/wiki)
+See the complete API [Xbox Controller API](https://github.com/mapaiva/xbox-controller-node/wiki).
 
 ``` javascript
 var xbox = require('xbox-controller-node');
@@ -52,7 +52,7 @@ var xbox = require('xbox-controller-node');
 xbox.configure();
 ```
 
-This will launch a server page on browser to you configure your controller. The page will be available on `http://localhost:3000`.
+This will launch a server page on browser to you configure your controller. The page will be available on `http://localhost:3000`. See the complete [Configuration Guide](https://github.com/mapaiva/xbox-controller-node/wiki/Configuration-Guide).
 
 ## Just the first step
 
