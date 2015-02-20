@@ -1,0 +1,11 @@
+{
+  "leftStickCoordinates": {
+    "x": 0,
+    "y": 2
+  },
+
+  "rightStickCoordinates": {
+    "x": 4,
+    "y": 6
+  }
+}
