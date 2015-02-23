@@ -40,6 +40,40 @@ xbox.on('upright', function () {
 xbox.on('leftstickpress', function () {
   console.log('[LEFTSTICK] button press');
 });
+
+//Manage sticks events
+
+xbox.on('leftstickLeft', function () {
+  console.log('Moving [LEFTSTICK] LEFT');
+});
+
+xbox.on('leftstickRight', function () {
+  console.log('Moving [LEFTSTICK] RIGHT');
+});
+
+xbox.on('leftstickDown', function () {
+  console.log('Moving [LEFTSTICK] DOWN');
+});
+
+xbox.on('leftstickUp', function () {
+  console.log('Moving [LEFTSTICK] UP');
+});
+
+xbox.on('rightstickLeft', function () {
+  console.log('Moving [RIGHTSTICK] LEFT');
+});
+
+xbox.on('rightstickRight', function () {
+  console.log('Moving [RIGHTSTICK] RIGHT');
+});
+
+xbox.on('rightstickDown', function () {
+  console.log('Moving [RIGHTSTICK] DOWN');
+});
+
+xbox.on('rightstickUp', function () {
+  console.log('Moving [RIGHTSTICK] UP');
+});
 ```
 
 ## Configuration
@@ -56,6 +90,8 @@ This will launch a server page on browser to you configure your controller. The 
 
 ## Just the first step
 
-Yes. The triggers and the sticks buttons are not mapped :(. For this... contributions and improvements are very welcome. Thanks for see this.
+Yes. The triggers are not mapped :(. For this... contributions and improvements are very welcome. Thanks for see this.
 
-  Based on [node-xbox-controller](https://github.com/andrew/node-xbox-controller)
+## License
+
+Copyright (c) 2015 Matheus Paiva (MIT) The MIT License
