@@ -14,6 +14,13 @@ If you have problems with the instalation of the `node-hid` these links can be u
 - Prerequisites of node-hid [node-hid prerequisites](https://github.com/node-hid/node-hid#prerequisites)
 - node-gyp wiki documentation for windows [node-gyp wiki](https://github.com/TooTallNate/node-gyp/wiki/Visual-Studio-2010-Setup)
 
+### Linux Requirements
+- libudev-dev
+
+```bash
+sudo apt-get install libudev-dev
+```
+
 ## Usage
 
 See the complete API [Xbox Controller API](https://github.com/mapaiva/xbox-controller-node/wiki).

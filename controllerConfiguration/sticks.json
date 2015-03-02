@@ -1,11 +1,17 @@
 {
   "leftStickCoordinates": {
     "x": 0,
-    "y": 2
+    "y": 2,
+
+    "axisX": 0,
+    "axisY": 1
   },
 
   "rightStickCoordinates": {
     "x": 4,
-    "y": 6
+    "y": 6,
+
+    "axisX": 3,
+    "axisY": 4
   }
 }
