@@ -25,5 +25,24 @@
     "lb": 16,
     "start": 128,
     "select": 64
+  },
+
+  "linuxAdapter": {
+    "a": 0,
+    "b": 1,
+    "x": 2,
+    "y": 3,
+    "lb": 4,
+    "rb": 5,
+    "back": 6,
+    "start": 7,
+    "start": 7,
+    "xboxButton": 8,
+    "leftstickpress": 9,
+    "rightstickpress": 10,
+    "left": 11,
+    "right": 12,
+    "up": 13,
+    "down": 14
   }
 }
