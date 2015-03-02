@@ -24,7 +24,7 @@
     "rb": 32,
     "lb": 16,
     "start": 128,
-    "select": 64
+    "back": 64
   },
 
   "linuxAdapter": {
