@@ -1,6 +1,8 @@
 Xbox Controller Interface
 ====================
 
+![dependencies](https://david-dm.org/mapaiva/xbox-controller-node.svg)
+
 Simple interface to Xbox controller using Node.js
 
 ## Installing
