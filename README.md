@@ -34,12 +34,20 @@ xbox.on('a', function () {
   console.log('[A] button press');
 });
 
+xbox.on('a:release', function () {
+  console.log('[A] button release');
+});
+
 xbox.on('start', function () {
   console.log('[Start] button press');
 });
 
 xbox.on('left', function () {
   console.log('[LEFT] button press');
+});
+
+xbox.on('left:release', function () {
+  console.log('[LEFT] button release');
 });
 
 xbox.on('upright', function () {
@@ -56,9 +64,17 @@ xbox.on('leftstickLeft', function () {
   console.log('Moving [LEFTSTICK] LEFT');
 });
 
+xbox.on('leftstickLeft:release', function () {
+  console.log('Released [LEFTSTICK] LEFT');
+});
+
 xbox.on('leftstickRight', function () {
   console.log('Moving [LEFTSTICK] RIGHT');
 });
+
+xbox.on('leftstickRight:release', function () {
+  console.log('Released [LEFTSTICK] RIGHT');
+})
 
 xbox.on('leftstickDown', function () {
   console.log('Moving [LEFTSTICK] DOWN');
@@ -72,6 +88,10 @@ xbox.on('rightstickLeft', function () {
   console.log('Moving [RIGHTSTICK] LEFT');
 });
 
+xbox.on('rightstickLeft:release', function () {
+  console.log('Released [RIGHTSTICK] LEFT');
+});
+
 xbox.on('rightstickRight', function () {
   console.log('Moving [RIGHTSTICK] RIGHT');
 });
@@ -83,6 +103,12 @@ xbox.on('rightstickDown', function () {
 xbox.on('rightstickUp', function () {
   console.log('Moving [RIGHTSTICK] UP');
 });
+```
+
+You can test the API running:
+
+```bash
+npm test
 ```
 
 ## Configuration
