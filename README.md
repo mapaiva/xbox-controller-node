@@ -17,10 +17,23 @@ If you have problems with the instalation of the `node-hid` these links can be u
 - node-gyp wiki documentation for windows [node-gyp wiki](https://github.com/TooTallNate/node-gyp/wiki/Visual-Studio-2010-Setup)
 
 ### Linux Requirements
+
+#### Ubunto based distributions
 - libudev-dev
 
 ```bash
 sudo apt-get install libudev-dev
+```
+
+#### Fedora based distributions
+- kernel-modules-extra
+- joystick
+- libusbx-devel
+
+```bash
+sudo yum install kernel-modules-extra
+sudo yum install joystick
+sudo yum install libusbx-devel
 ```
 
 ## Usage
