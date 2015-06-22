@@ -20,9 +20,10 @@ If you have problems with the instalation of the `node-hid` these links can be u
 
 #### Ubunto based distributions
 - libudev-dev
+- libusb-1.0-0-dev
 
 ```bash
-sudo apt-get install libudev-dev
+sudo apt-get install libudev-dev && sudo apt-get install libusb-1.0-0-dev 
 ```
 
 #### Fedora based distributions
