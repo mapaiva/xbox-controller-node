@@ -13,5 +13,25 @@
 
     "axisX": 3,
     "axisY": 4
+  },
+  
+  "leftTriggerCoordinates": {
+    "x": 0,
+
+    "axisX": 2
+  },
+
+  "rightTriggerCoordinates": {
+    "x": 4,
+
+    "axisX": 5
+  },
+  
+  "crossCoordinates": {
+    "x": 0,
+    "y": 2,
+
+    "axisX": 6,
+    "axisY": 7
   }
 }
